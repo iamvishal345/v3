@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
 import { socialMedia } from '@config';
+import { Link } from 'gatsby';
 
 const StyledFooter = styled.footer`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -103,6 +104,11 @@ const Footer = () => {
             ))}
         </ul>
       </StyledSocialLinks>
+      <StyledCredit tabindex="-1">
+        <a href="https://github.com/iamvishal345/v4">
+          <div>Updated by Vishal Sharma</div>
+        </a>
+      </StyledCredit>
 
       <StyledCredit tabindex="-1">
         <a href="https://github.com/bchiang7/v4">
@@ -121,6 +127,10 @@ const Footer = () => {
             </div>
           )}
         </a>
+      </StyledCredit>
+      <StyledCredit>
+        <Link to="/archive">Archive</Link>
+        <Link to="/posts">Posts</Link>
       </StyledCredit>
     </StyledFooter>
   );
