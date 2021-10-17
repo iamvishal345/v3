@@ -41,7 +41,7 @@ const StyledText = styled.div`
         left: 0;
         color: var(--green);
         font-size: var(--fz-sm);
-        line-height: 12px;
+        line-height: 20px;
       }
     }
   }
