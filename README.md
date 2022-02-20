@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/iamvishal345/v3/main/src/images/logo.png width="100" />
+  <img alt="Logo" src="https://raw.githubusercontent.com/iamvishal345/v3/main/src/images/logo.png" width="100" />
 </div>
 <h1 align="center">
   vishal.codeentity.tech - v3
@@ -12,13 +12,10 @@
   <a href="https://iamvishal345.github.io/" target="_blank">v1</a>,
   <a href="https://profile.codeentity.tech/" target="_blank">v2</a>
 </p>
-<p align="center">
-  [![Netlify Status](https://api.netlify.com/api/v1/badges/25d93c4c-5bc9-4a50-adb7-e7eea2f4be2a/deploy-status)](https://app.netlify.com/sites/agitated-borg-a37d77/deploys)
-</p>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/25d93c4c-5bc9-4a50-adb7-e7eea2f4be2a/deploy-status)](https://app.netlify.com/sites/agitated-borg-a37d77/deploys)
 
 ![demo](https://raw.githubusercontent.com/iamvishal345/v3/main/src/images/demo.png)
-
-### TL;DR
 
 You can fork this repo. But I will suggest you to fork form original repo and give me proper credit by linking back to [brittanychiang.com](https://brittanychiang.com). Thanks!
 
