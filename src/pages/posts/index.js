@@ -142,7 +142,7 @@ const StyledPost = styled.li`
   }
 `;
 
-const PensievePage = ({ location, data }) => {
+const PostPage = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
@@ -151,7 +151,7 @@ const PensievePage = ({ location, data }) => {
 
       <StyledMainContainer>
         <header>
-          <h1 className="big-heading">Pensieve</h1>
+          <h1 className="big-heading">Posts</h1>
           <p className="subtitle">
             <a href="https://www.wizardingworld.com/writing-by-jk-rowling/pensieve">
               a collection of memories
@@ -184,7 +184,7 @@ const PensievePage = ({ location, data }) => {
                       <ul className="post__tags">
                         {tags.map((tag, i) => (
                           <li key={i}>
-                            <Link to={`/pensieve/tags/${kebabCase(tag)}/`} className="inline-link">
+                            <Link to={`/posts/tags/${kebabCase(tag)}/`} className="inline-link">
                               #{tag}
                             </Link>
                           </li>
@@ -201,12 +201,12 @@ const PensievePage = ({ location, data }) => {
   );
 };
 
-PensievePage.propTypes = {
+PostPage.propTypes = {
   location: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
 };
 
-export default PensievePage;
+export default PostPage;
 
 export const pageQuery = graphql`
   {

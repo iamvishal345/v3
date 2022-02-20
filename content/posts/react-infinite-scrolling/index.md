@@ -3,7 +3,7 @@ title: Infinite scrolling in React
 description: Infinite scrolling implemented using IntersectionObserver in React
 date: 2021-03-21
 draft: false
-slug: /pensieve/clickable-cards
+slug: /post/clickable-cards
 tags:
   - React
   - IntersectionObserver

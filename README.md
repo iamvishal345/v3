@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/bchiang7/v4/main/src/images/logo.png" width="100" />
+  <img alt="Logo" src="https://raw.githubusercontent.com/iamvishal345/v3/main/src/images/logo.png width="100" />
 </div>
 <h1 align="center">
   vishal.codeentity.tech - v3
@@ -13,12 +13,10 @@
   <a href="https://profile.codeentity.tech/" target="_blank">v2</a>
 </p>
 <p align="center">
-  <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
-    <img src="https://api.netlify.com/api/v1/badges/1963b488-7b78-48c9-9e2d-6fb5e47ab3af/deploy-status" alt="Netlify Status" />
-  </a>
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/25d93c4c-5bc9-4a50-adb7-e7eea2f4be2a/deploy-status)](https://app.netlify.com/sites/agitated-borg-a37d77/deploys)
 </p>
 
-![demo](https://raw.githubusercontent.com/bchiang7/v4/main/src/images/demo.png)
+![demo](https://raw.githubusercontent.com/iamvishal345/v3/main/src/images/demo.png)
 
 ### TL;DR
 
