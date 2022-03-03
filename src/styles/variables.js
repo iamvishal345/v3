@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 
 const variables = css`
   :root {
+    // Dark theme
     --dark-navy: #020c1b;
     --navy: #0a192f;
     --light-navy: #112240;
@@ -14,8 +15,19 @@ const variables = css`
     --white: #e6f1ff;
     --green: #64ffda;
     --green-tint: rgba(100, 255, 218, 0.1);
-    --pink: #f57dff;
-    --blue: #57cbff;
+
+    //light-theme
+    --white: #ffffff;
+    --gray: #f2f2f2;
+    --blue-grey: #e9edf3;
+    --blue-dark-grey: #8694a8;
+    --dark-blue: #2c3c6c;
+    --light-blue: #5a71b4;
+    --lightest-blue: #6474a8;
+    --reddish-black: #5a5858;
+    --dark-green: #04d99d;
+
+    //light theme
 
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
       sans-serif;

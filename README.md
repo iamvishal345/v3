@@ -42,7 +42,7 @@ You can fork this repo. But I will suggest you to fork form original repo and gi
 4. Start the development server
 
    ```sh
-   npm start
+   yarn start
    ```
 
 ## 🚀 Building and Running for Production
@@ -50,24 +50,38 @@ You can fork this repo. But I will suggest you to fork form original repo and gi
 1. Generate a full static production build
 
    ```sh
-   npm run build
+   yarn build
    ```
 
 1. Preview the site as it will appear once deployed
 
    ```sh
-   npm run serve
+   yarn serve
    ```
 
-## 🎨 Color Reference
+## 🎨 Color Reference Dark Theme
 
 | Color          | Hex                                                                |
 | -------------- | ------------------------------------------------------------------ |
 | Navy           | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) `#0a192f` |
-| Light Navy     | ![#112240](https://via.placeholder.com/10/0a192f?text=+) `#112240` |
-| Lightest Navy  | ![#233554](https://via.placeholder.com/10/303C55?text=+) `#233554` |
+| Light Navy     | ![#112240](https://via.placeholder.com/10/112240?text=+) `#112240` |
+| Lightest Navy  | ![#233554](https://via.placeholder.com/10/233554?text=+) `#233554` |
 | Slate          | ![#8892b0](https://via.placeholder.com/10/8892b0?text=+) `#8892b0` |
 | Light Slate    | ![#a8b2d1](https://via.placeholder.com/10/a8b2d1?text=+) `#a8b2d1` |
 | Lightest Slate | ![#ccd6f6](https://via.placeholder.com/10/ccd6f6?text=+) `#ccd6f6` |
 | White          | ![#e6f1ff](https://via.placeholder.com/10/e6f1ff?text=+) `#e6f1ff` |
 | Green          | ![#64ffda](https://via.placeholder.com/10/64ffda?text=+) `#64ffda` |
+
+## 🎨 Color Reference Light Theme
+
+| Color          | Hex                                                                |
+| -------------- | ------------------------------------------------------------------ |
+| White          | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) `fffffff` |
+| Grey           | ![#f2f2f2](https://via.placeholder.com/10/f2f2f2?text=+) `#f2f2f2` |
+| Blue Grey      | ![#e9edf3](https://via.placeholder.com/10/e9edf3?text=+) `#e9edf3` |
+| Blue Dark Grey | ![#8694a8](https://via.placeholder.com/10/8694a8?text=+) `#8694a8` |
+| Dark Blue      | ![#2c3c6c](https://via.placeholder.com/10/2c3c6c?text=+) `#2c3c6c` |
+| Light Blue     | ![#5a71b4](https://via.placeholder.com/10/5a71b4?text=+) `#5a71b4` |
+| Lightest Blue  | ![#6474a8](https://via.placeholder.com/10/6474a8?text=+) `#6474a8` |
+| Reddish Black  | ![#5a5858](https://via.placeholder.com/10/5a5858?text=+) `#5a5858` |
+| Dark Green     | ![#04d99d](https://via.placeholder.com/10/04d99d?text=+) `#04d99d` |

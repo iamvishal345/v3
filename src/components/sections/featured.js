@@ -117,14 +117,14 @@ const StyledProject = styled.li`
 
   .project-overline {
     margin: 10px 0;
-    color: var(--green);
+    color: var(--secondary-color);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
     font-weight: 400;
   }
 
   .project-title {
-    color: var(--lightest-slate);
+    color: var(--tertiary-text);
     font-size: clamp(24px, 5vw, 28px);
 
     @media (min-width: 768px) {
@@ -132,7 +132,7 @@ const StyledProject = styled.li`
     }
 
     @media (max-width: 768px) {
-      color: var(--white);
+      color: var(--overlay-text);
 
       a {
         position: static;
@@ -157,8 +157,8 @@ const StyledProject = styled.li`
     z-index: 2;
     padding: 25px;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
-    color: var(--light-slate);
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
     font-size: var(--fz-lg);
 
     @media (max-width: 768px) {
@@ -192,7 +192,7 @@ const StyledProject = styled.li`
 
     li {
       margin: 0 20px 5px 0;
-      color: var(--light-slate);
+      color: var(--secondary-text);
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
       white-space: nowrap;
@@ -203,7 +203,7 @@ const StyledProject = styled.li`
 
       li {
         margin: 0 10px 5px 0;
-        color: var(--lightest-slate);
+        color: var(--tertiary-text);
       }
     }
   }
@@ -214,7 +214,7 @@ const StyledProject = styled.li`
     position: relative;
     margin-top: 10px;
     margin-left: -10px;
-    color: var(--lightest-slate);
+    color: var(--tertiary-text);
 
     a {
       ${({ theme }) => theme.mixins.flexCenter};
@@ -256,7 +256,7 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
+      background-color: var(--secondary-color);
       border-radius: var(--border-radius);
       vertical-align: middle;
 

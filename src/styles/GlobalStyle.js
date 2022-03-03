@@ -13,6 +13,40 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
+  html[data-theme='dark']{
+    --backdrop-bg: var(--dark-navy);
+    --primary-bg: var(--navy);
+    --secondary-bg: var(--light-navy);
+    --tertiary-bg: var(--lightest-navy);
+    --primary-shadow: var(--navy-shadow);
+    --scroll-thumb: var(--dark-slate);
+    --primary-text: var(--slate);
+    --secondary-text: var(--light-slate);
+    --tertiary-text: var(--lightest-slate);
+    --overlay-text: var(--white);
+    --secondary-color: var(--green);
+    --secondary-overlay-color: var(--green-tint);
+    --nav-color: rgba(10, 25, 47, 0.85);
+    --selection-bg: var(--tertiary-bg)
+  }
+
+    html[data-theme='light']{
+    --backdrop-bg: var(--grey);
+    --primary-bg: var(--white);
+    --secondary-bg: var(--blue-grey);
+    --tertiary-bg: var(--blue-dark-grey);
+    --primary-shadow: var(--navy-shadow);
+    --scroll-thumb: var(--dark-slate);
+    --primary-text: var(--dark-blue);
+    --secondary-text: var(--light-blue);
+    --tertiary-text: var(--lightest-blue);
+    --overlay-text: var(--reddish-black);
+    --secondary-color: var(--dark-green);
+    --secondary-overlay-color: var(--green-tint);
+    --nav-color: var(--white);
+    --selection-bg: #a8c3e9;
+  }
+
   *,
   *:before,
   *:after {
@@ -20,29 +54,29 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
+    background-color: var(--selection-bg);
+    color: var(--tertiary-text);
   }
 
   :focus {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--secondary-color);
     outline-offset: 3px;
   }
 
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
+    scrollbar-color: var(--scroll-thumb) var(--primary-bg);
   }
   body::-webkit-scrollbar {
     width: 12px;
   }
   body::-webkit-scrollbar-track {
-    background: var(--navy);
+    background: var(--primary-bg);
   }
   body::-webkit-scrollbar-thumb {
-    background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
+    background-color: var(--scroll-thumb);
+    border: 3px solid var(--primary-bg);
     border-radius: 10px;
   }
 
@@ -53,8 +87,8 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--navy);
-    color: var(--slate);
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
     line-height: 1.3;
@@ -144,7 +178,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--lightest-slate);
+    color: var(--tertiary-text);
     line-height: 1.1;
   }
 
@@ -173,7 +207,7 @@ const GlobalStyle = createGlobalStyle`
       counter-increment: section;
       content: '0' counter(section) '.';
       margin-right: 10px;
-      color: var(--green);
+      color: var(--secondary-color);
       font-family: var(--font-mono);
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       font-weight: 400;
@@ -192,7 +226,7 @@ const GlobalStyle = createGlobalStyle`
       width: 300px;
       height: 1px;
       margin-left: 20px;
-      background-color: var(--lightest-navy);
+      background-color: var(--tertiary-bg);
 
       @media (max-width: 1080px) {
         width: 200px;
@@ -240,7 +274,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: var(--green);
+      color: var(--secondary-color);
     }
 
     &.inline-link {
@@ -282,7 +316,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     & > code {
-      background-color: var(--light-navy);
+      background-color: var(--secondary-bg);
       color: var(--white);
       font-size: var(--fz-sm);
       border-radius: var(--border-radius);
@@ -304,14 +338,14 @@ const GlobalStyle = createGlobalStyle`
           content: '▹';
           position: absolute;
           left: 0;
-          color: var(--green);
+          color: var(--secondary-color);
         }
       }
     }
   }
 
   blockquote {
-    border-left-color: var(--green);
+    border-left-color: var(--secondary-color);
     border-left-style: solid;
     border-left-width: 1px;
     margin-left: 0px;
@@ -325,7 +359,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   hr {
-    background-color: var(--lightest-navy);
+    background-color: var(--tertiary-bg);
     height: 1px;
     border-width: 0px;
     border-style: initial;
@@ -351,7 +385,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:focus,
     &:active {
-      background-color: var(--green);
+      background-color: var(--secondary-color);
       color: var(--navy);
       top: 0;
       left: 0;
@@ -363,18 +397,18 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #logo {
-    color: var(--green);
+    color: var(--secondary-color);
   }
 
   .overline {
-    color: var(--green);
+    color: var(--secondary-color);
     font-family: var(--font-mono);
     font-size: var(--fz-md);
     font-weight: 400;
   }
 
   .subtitle {
-    color: var(--green);
+    color: var(--secondary-color);
     margin: 0 0 20px 0;
     font-size: var(--fz-md);
     font-family: var(--font-mono);
@@ -397,7 +431,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     margin-bottom: 50px;
-    color: var(--green);
+    color: var(--secondary-color);
 
     .arrow {
       display: block;

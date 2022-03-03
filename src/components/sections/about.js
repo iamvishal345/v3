@@ -39,7 +39,7 @@ const StyledText = styled.div`
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: var(--secondary-color);
         font-size: var(--fz-sm);
         line-height: 20px;
       }
@@ -61,7 +61,7 @@ const StyledPic = styled.div`
     position: relative;
     width: 100%;
     border-radius: var(--border-radius);
-    background-color: var(--green);
+    background-color: var(--secondary-color);
 
     &:hover,
     &:focus {
@@ -106,7 +106,7 @@ const StyledPic = styled.div`
     }
 
     &:after {
-      border: 2px solid var(--green);
+      border: 2px solid var(--secondary-color);
       top: 20px;
       left: 20px;
       z-index: -1;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useLocation } from '@reach/router';
@@ -8,6 +8,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 const Head = ({ title, description, image }) => {
   const { pathname } = useLocation();
+  const [theme, setTheme] = useState('light');
 
   const { site } = useStaticQuery(
     graphql`
@@ -25,13 +26,8 @@ const Head = ({ title, description, image }) => {
     `,
   );
 
-  const {
-    defaultTitle,
-    defaultDescription,
-    siteUrl,
-    defaultImage,
-    twitterUsername,
-  } = site.siteMetadata;
+  const { defaultTitle, defaultDescription, siteUrl, defaultImage, twitterUsername } =
+    site.siteMetadata;
 
   const seo = {
     title: title || defaultTitle,
@@ -40,9 +36,23 @@ const Head = ({ title, description, image }) => {
     url: `${siteUrl}${pathname}`,
   };
 
+  useEffect(() => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      setTheme(event.matches ? 'dark' : 'light');
+    });
+    return () => {
+      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', event => {
+        setTheme(event.matches ? 'dark' : 'light');
+      });
+    };
+  }, []);
+
   return (
     <Helmet title={title} defaultTitle={seo.title} titleTemplate={`%s | ${defaultTitle}`}>
-      <html lang="en" />
+      <html data-theme={theme} lang="en" />
 
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
