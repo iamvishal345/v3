@@ -65,9 +65,9 @@ const Hero = () => {
     <>
       <p>
         I’m a software engineer specializing in building (and occasionally designing) exceptional
-        digital experiences. Currently, I’m focused on building accessible, data centric products at{' '}
-        <a href="https://www.publicissapient.com/" target="_blank" rel="noreferrer">
-          Publicis Sapient
+        digital experiences. Currently, I’m focused on building accessible, healthcare product at{' '}
+        <a href="https://www.1mg.com/" target="_blank" rel="noreferrer">
+          1MG Technologies
         </a>
         .
       </p>

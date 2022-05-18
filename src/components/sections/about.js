@@ -144,9 +144,9 @@ const About = () => {
 
             <p>
               Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://infosys.com/">a huge corporation</a>. My main focus these days is
-              building accessible,user friendly and data centric products at{' '}
-              <a href="https://publcissapient.com/">Publicis Sapient</a> for a variety of clients.
+              <a href="https://publcissapient.com/">a huge corporation</a>. My main focus these days
+              is building accessible, user friendly healthcare product at{' '}
+              <a href="https://www.1mg.com">1MG</a>.
             </p>
 
             <p>

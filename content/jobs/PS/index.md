@@ -3,7 +3,7 @@ date: '2021-06-01'
 title: 'Associate Technology'
 company: 'Publicis Sapient'
 location: 'Gurgaon, India'
-range: 'June 2021 - Present'
+range: 'June 2021 - May 2022'
 url: 'https://web.northeastern.edu/scout/'
 ---
 
