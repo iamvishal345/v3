@@ -2,7 +2,7 @@
 date: '3'
 title: 'Namaste Himachal'
 cover: './demo.png'
-external: 'https://namastehimachal.herokuapp.com/'
+external: 'https://him-hills-holiday.onrender.com'
 tech:
   - React
   - Express

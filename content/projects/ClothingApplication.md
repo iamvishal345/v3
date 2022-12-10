@@ -2,7 +2,7 @@
 date: '2020-09-13'
 title: 'Clothing Application'
 github: 'https://github.com/iamvishal345/clothing_app_react'
-external: 'https://react-ecommerce-clothing-live.herokuapp.com/'
+external: 'https://clothing-web.onrender.com/'
 tech:
   - React.js
   - SCSS
