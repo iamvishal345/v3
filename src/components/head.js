@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -7,7 +7,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 const Head = ({ title, description, image }) => {
   const { pathname } = useLocation();
-  const [theme, setTheme] = useState('light');
 
   const { site } = useStaticQuery(
     graphql`
@@ -35,23 +34,9 @@ const Head = ({ title, description, image }) => {
     url: `${siteUrl}${pathname}`,
   };
 
-  useEffect(() => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    }
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-      setTheme(event.matches ? 'dark' : 'light');
-    });
-    return () => {
-      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', event => {
-        setTheme(event.matches ? 'dark' : 'light');
-      });
-    };
-  }, []);
-
   return (
     <>
-      <html data-theme={theme} lang="en" />
+      <html data-theme="dark" lang="en" />
       <title>{`${title ? `${title} | ` : ''}${defaultTitle}`}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
