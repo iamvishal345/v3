@@ -1,11 +1,9 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import kebabCase from 'lodash/kebabCase';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { Layout } from '@components';
+import { Layout, Head as Meta } from '@components';
 import { IconBookmark } from '@components/icons';
+import { Link } from 'gatsby';
 
 const StyledMainContainer = styled.main`
   & > header {
@@ -26,6 +24,7 @@ const StyledMainContainer = styled.main`
     ${({ theme }) => theme.mixins.flexBetween};
     width: 100%;
     margin-top: 20px;
+    gap: 1rem;
   }
 `;
 const StyledGrid = styled.ul`
@@ -112,6 +111,10 @@ const StyledPost = styled.li`
   .post__desc {
     color: var(--secondary-text);
     font-size: 17px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
   }
 
   .post__date {
@@ -136,20 +139,35 @@ const StyledPost = styled.li`
       line-height: 1.75;
 
       &:not(:last-of-type) {
-        margin-right: 15px;
+        margin-right: 8px;
       }
     }
   }
 `;
 
-const PostPage = ({ location, data }) => {
-  const posts = data.allMarkdownRemark.edges;
+const PostPage = ({ location }) => {
+  const [posts, setPosts] = useState(window?.posts || []);
+
+  useEffect(() => {
+    (async () => {
+      if (window.posts) {
+        return;
+      }
+      const res = await fetch(
+        'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.codeentity.tech%2Frss.xml&api_key=wubgt93t4jusc8cybmydvm2d6ccqoqv2yzosrrvz&order_by=pubDate&count=30',
+      );
+      const data = await res.json();
+      window.posts = data.items;
+      setPosts(data.items);
+    })();
+  }, []);
 
   return (
     <Layout location={location}>
-      <Helmet title="Posts" />
-
       <StyledMainContainer>
+        <Link className="tags-link" to="/posts/tags">
+          All tags
+        </Link>
         <header>
           <h1 className="big-heading">Posts</h1>
           <p className="subtitle">
@@ -158,13 +176,11 @@ const PostPage = ({ location, data }) => {
             </a>
           </p>
         </header>
-
         <StyledGrid>
           {posts.length > 0 &&
-            posts.map(({ node }, i) => {
-              const { frontmatter } = node;
-              const { title, description, slug, date, tags } = frontmatter;
-              const formattedDate = new Date(date).toLocaleDateString();
+            posts.map((post, i) => {
+              const { title, description, link, pubDate, categories } = post;
+              const formattedDate = new Date(pubDate).toLocaleDateString('en-IN');
 
               return (
                 <StyledPost key={i}>
@@ -174,7 +190,9 @@ const PostPage = ({ location, data }) => {
                         <IconBookmark />
                       </div>
                       <h5 className="post__title">
-                        <Link to={slug}>{title}</Link>
+                        <a href={link} target="_blank" rel="noreferrer">
+                          {title}
+                        </a>
                       </h5>
                       <p className="post__desc">{description}</p>
                     </header>
@@ -182,11 +200,9 @@ const PostPage = ({ location, data }) => {
                     <footer>
                       <span className="post__date">{formattedDate}</span>
                       <ul className="post__tags">
-                        {tags.map((tag, i) => (
+                        {categories.map((tag, i) => (
                           <li key={i}>
-                            <Link to={`/posts/tags/${kebabCase(tag)}/`} className="inline-link">
-                              #{tag}
-                            </Link>
+                            <p className="inline-link">#{tag}</p>
                           </li>
                         ))}
                       </ul>
@@ -201,32 +217,12 @@ const PostPage = ({ location, data }) => {
   );
 };
 
+export function Head() {
+  return <Meta title="Posts" />;
+}
+
 PostPage.propTypes = {
   location: PropTypes.object.isRequired,
-  data: PropTypes.object.isRequired,
 };
 
 export default PostPage;
-
-export const pageQuery = graphql`
-  {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/posts/" }, frontmatter: { draft: { ne: true } } }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            description
-            slug
-            date
-            tags
-            draft
-          }
-          html
-        }
-      }
-    }
-  }
-`;

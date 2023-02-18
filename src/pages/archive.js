@@ -1,11 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
-import { Layout } from '@components';
+import { Layout, Head as Meta } from '@components';
 import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
@@ -148,8 +147,6 @@ const ArchivePage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Helmet title="Archive" />
-
       <main>
         <header ref={revealTitle}>
           <h1 className="big-heading">Archive</h1>
@@ -232,13 +229,17 @@ ArchivePage.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
+export function Head() {
+  return <Meta title="Archive" />;
+}
+
 export default ArchivePage;
 
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/projects/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {

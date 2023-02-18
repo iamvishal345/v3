@@ -454,6 +454,13 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
+  .tags-link{
+    display: block;
+    color: var(--tertiary-text);
+    margin-left: auto;
+    width: fit-content;
+  }
+
   ${TransitionStyles};
 
   ${PrismStyles};

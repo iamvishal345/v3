@@ -27,8 +27,6 @@ const variables = css`
     --reddish-black: #5a5858;
     --dark-green: #04d99d;
 
-    //light theme
-
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
       sans-serif;
     --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
