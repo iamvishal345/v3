@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Layout, Head as Meta } from '@components';
 import { IconBookmark } from '@components/icons';
-import { Link } from 'gatsby';
+import { isSSR } from '@utils';
 
 const StyledMainContainer = styled.main`
   & > header {
@@ -146,20 +147,23 @@ const StyledPost = styled.li`
 `;
 
 const PostPage = ({ location }) => {
-  const [posts, setPosts] = useState(window?.posts || []);
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      if (window.posts) {
-        return;
-      }
-      const res = await fetch(
-        'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.codeentity.tech%2Frss.xml&api_key=wubgt93t4jusc8cybmydvm2d6ccqoqv2yzosrrvz&order_by=pubDate&count=30',
-      );
-      const data = await res.json();
-      window.posts = data.items;
-      setPosts(data.items);
-    })();
+    if (!isSSR) {
+      (async () => {
+        if (window.posts) {
+          setPosts(window.posts);
+          return;
+        }
+        const res = await fetch(
+          'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.codeentity.tech%2Frss.xml&api_key=wubgt93t4jusc8cybmydvm2d6ccqoqv2yzosrrvz&order_by=pubDate&count=30',
+        );
+        const data = await res.json();
+        window.posts = data.items;
+        setPosts(data.items);
+      })();
+    }
   }, []);
 
   return (
