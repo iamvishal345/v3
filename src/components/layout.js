@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { Loader, Nav, Social, Email, Footer } from '@components';
 import { GlobalStyle, theme } from '@styles';
-import { isSSR } from '@utils';
-
-// https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc445299558
-if (!isSSR) {
-  // eslint-disable-next-line global-require
-  require('smooth-scroll')('a[href*="#"]');
-}
 
 const StyledContent = styled.div`
   display: flex;

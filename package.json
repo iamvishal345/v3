@@ -55,7 +55,6 @@
     "react-dom": "^18.2.0",
     "react-transition-group": "^4.4.5",
     "scrollreveal": "^4.0.5",
-    "smooth-scroll": "^16.1.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

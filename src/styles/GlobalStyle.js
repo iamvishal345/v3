@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   ${variables};
 
   html {
+    scroll-behavior: smooth;
     box-sizing: border-box;
     width: 100%;
   }
