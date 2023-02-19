@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { navLinks } from '@config';
 import { KEY_CODES } from '@utils';
 import { useOnClickOutside } from '@hooks';
@@ -152,9 +153,17 @@ const StyledSidebar = styled.aside`
     margin: 10% auto 0;
     width: max-content;
   }
+  .theme-button {
+    ${({ theme }) => theme.mixins.linkButton};
+    margin-top: 2rem;
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
 `;
 
-const Menu = () => {
+const Menu = ({ children }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -269,11 +278,16 @@ const Menu = () => {
             <a href="/resume.pdf" className="resume-link">
               Resume
             </a>
+            <div>{children}</div>
           </nav>
         </StyledSidebar>
       </div>
     </StyledMenu>
   );
+};
+
+Menu.propTypes = {
+  children: PropTypes.node,
 };
 
 export default Menu;

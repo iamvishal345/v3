@@ -7,7 +7,7 @@ import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
-import { IconLogo } from '@components/icons';
+import { IconLogo, Icon } from '@components/icons';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -38,7 +38,6 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
         box-shadow: 0 10px 30px -10px var(--primary-shadow);
       `};
 
@@ -125,9 +124,17 @@ const StyledLinks = styled.div`
     margin-left: 15px;
     font-size: var(--fz-xs);
   }
+  .theme-button {
+    ${({ theme }) => theme.mixins.linkButton};
+    margin-left: 2rem;
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
 `;
 
-const Nav = ({ isHome }) => {
+const Nav = ({ isHome, colorTheme, setColorTheme }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
@@ -178,6 +185,15 @@ const Nav = ({ isHome }) => {
     </a>
   );
 
+  const ThemeButton = (
+    <button
+      className="theme-button"
+      onClick={() => setColorTheme(colorTheme === 'Dark' ? 'Light' : 'Dark')}
+    >
+      <Icon name={colorTheme === 'Dark' ? 'Light' : 'Dark'} />
+    </button>
+  );
+
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <StyledNav>
@@ -195,9 +211,12 @@ const Nav = ({ isHome }) => {
                   ))}
               </ol>
               <div>{ResumeLink}</div>
+              <div style={{ transitionDelay: `${isHome ? (navLinks.length + 1) * 100 : 0}ms` }}>
+                {ThemeButton}
+              </div>
             </StyledLinks>
 
-            <Menu />
+            <Menu>{ThemeButton}</Menu>
           </>
         ) : (
           <>
@@ -233,12 +252,23 @@ const Nav = ({ isHome }) => {
                   </CSSTransition>
                 )}
               </TransitionGroup>
+              <TransitionGroup component={null}>
+                {isMounted && (
+                  <CSSTransition classNames={fadeDownClass} timeout={timeout}>
+                    <div
+                      style={{ transitionDelay: `${isHome ? (navLinks.length + 1) * 100 : 0}ms` }}
+                    >
+                      {ThemeButton}
+                    </div>
+                  </CSSTransition>
+                )}
+              </TransitionGroup>
             </StyledLinks>
 
             <TransitionGroup component={null}>
               {isMounted && (
                 <CSSTransition classNames={fadeClass} timeout={timeout}>
-                  <Menu />
+                  <Menu>{ThemeButton}</Menu>
                 </CSSTransition>
               )}
             </TransitionGroup>
@@ -251,6 +281,8 @@ const Nav = ({ isHome }) => {
 
 Nav.propTypes = {
   isHome: PropTypes.bool,
+  colorTheme: PropTypes.string,
+  setColorTheme: PropTypes.func,
 };
 
 export default Nav;

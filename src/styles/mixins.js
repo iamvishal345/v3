@@ -143,6 +143,25 @@ const mixins = {
     }
   `,
 
+  linkButton: css`
+    color: var(--secondary-text);
+    background-color: transparent;
+    border: none;
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--secondary-color);
+      outline: 0;
+      &:after {
+        width: 100%;
+      }
+      & > * {
+        color: var(--secondary-color) !important;
+        transition: var(--transition);
+      }
+    }
+  `,
+
   fancyList: css`
     padding: 0;
     margin: 0;

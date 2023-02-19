@@ -36,7 +36,7 @@ const Head = ({ title, description, image }) => {
 
   return (
     <>
-      <html data-theme="dark" lang="en" />
+      <html lang="en" />
       <title>{`${title ? `${title} | ` : ''}${defaultTitle}`}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />

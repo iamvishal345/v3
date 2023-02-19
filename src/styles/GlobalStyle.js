@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
-  html[data-theme='dark']{
+  html[data-theme='Dark']{
     --backdrop-bg: var(--dark-navy);
     --primary-bg: var(--navy);
     --secondary-bg: var(--light-navy);
@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     --selection-bg: var(--tertiary-bg)
   }
 
-    html[data-theme='light']{
+    html[data-theme='Light']{
     --backdrop-bg: var(--grey);
     --primary-bg: var(--white);
     --secondary-bg: var(--blue-grey);

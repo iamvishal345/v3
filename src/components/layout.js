@@ -20,6 +20,17 @@ const StyledContent = styled.div`
 const Layout = ({ children, location }) => {
   const isHome = location.pathname === '/';
   const [isLoading, setIsLoading] = useState(isHome);
+  const [colorTheme, setColorTheme] = useState('');
+
+  useEffect(() => {
+    const storedValue = window.localStorage.getItem('colorTheme') || 'Dark';
+    setColorTheme(storedValue);
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('colorTheme', colorTheme);
+    document.documentElement.setAttribute('data-theme', colorTheme);
+  }, [colorTheme]);
 
   // Sets target="_blank" rel="noopener noreferrer" on external links
   const handleExternalLinks = () => {
@@ -67,7 +78,7 @@ const Layout = ({ children, location }) => {
             <Loader finishLoading={() => setIsLoading(false)} />
           ) : (
             <StyledContent>
-              <Nav isHome={isHome} />
+              <Nav colorTheme={colorTheme} setColorTheme={setColorTheme} isHome={isHome} />
               <Social isHome={isHome} />
               <Email isHome={isHome} />
 
