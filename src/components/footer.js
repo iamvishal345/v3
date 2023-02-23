@@ -130,7 +130,7 @@ const Footer = () => {
       </StyledCredit>
       <StyledCredit>
         <Link to="/archive">Archive</Link>
-        <Link to="/posts">Posts</Link>
+        <a href="https://www.codeentity.tech">Posts</a>
       </StyledCredit>
     </StyledFooter>
   );

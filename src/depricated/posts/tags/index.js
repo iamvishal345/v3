@@ -63,7 +63,7 @@ const TagsPage = ({ location }) => {
       <StyledTagsContainer>
         <span className="breadcrumb">
           <span className="arrow">&larr;</span>
-          <Link to="/posts">All posts</Link>
+          <Link to="/">All posts</Link>
         </span>
 
         <h1>Tags</h1>
